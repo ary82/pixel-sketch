@@ -1,12 +1,12 @@
 :root {
-  --base-clr: ;
-  --base-alt1: ;
-  --text-clr: ;
-  --text-alt1: ;
-  --text-links: ;
-  --text-success: ;
-  --text-warning: ;
-  --text-error: ;
+  --base-clr: rgb(20, 27, 30);
+  --base-alt1: rgb(35, 42, 45);
+  --text-clr: rgb(218, 218, 218);
+  --text-alt1: rgb(179, 185, 184);
+  --text-links: rgb(103, 176, 232);
+  --text-success: rgb(140, 207, 126);
+  --text-warning: rgb(229, 199, 107);
+  --text-error: rgb(229, 116, 116);
 }
 
 @font-face {
