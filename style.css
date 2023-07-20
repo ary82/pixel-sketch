@@ -11,8 +11,8 @@
 
 @font-face {
   font-family: "";
-  src: url("") format("woff2");
-  font-weight: range;
+  src: url("Assets/Fonts/Quicksand-VariableFont_wght.woff2") format("woff2");
+  font-weight: 300 700;
   font-display: swap;
 }
 
