@@ -10,7 +10,7 @@
 }
 
 @font-face {
-  font-family: "";
+  font-family: "Quicksand";
   src: url("Assets/Fonts/Quicksand-VariableFont_wght.woff2") format("woff2");
   font-weight: 300 700;
   font-display: swap;
@@ -90,4 +90,13 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Css starts here */
+body {
+  font-family: Quicksand;
+  font-weight: 400;
+  font-size: 1rem;
+  background-color: var(--base-clr);
+  color: var(--text-clr);
 }
