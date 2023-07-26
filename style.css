@@ -39,8 +39,8 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+ul,
+ol {
   list-style: none;
 }
 
@@ -52,6 +52,7 @@ html:focus-within {
 /* Set core body defaults */
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -99,4 +100,45 @@ body {
   font-size: 1rem;
   background-color: var(--base-clr);
   color: var(--text-clr);
+}
+
+.header {
+  font-size: 2.5rem;
+  padding: 1em;
+  margin: 1em;
+  text-align: center;
+  font-weight: 600;
+}
+.header h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.container {
+  display: flex;
+  padding: 1em;
+  max-width: 50rem;
+  margin: 1em auto;
+  justify-content: center;
+  background-color: var(--base-alt1);
+  border-radius: 1em;
+}
+
+.left_menu {
+  background-color: var(--text-clr);
+  border-radius: 1em 0 0 1em;
+  margin: 1em;
+  padding: 1em;
+}
+.canvas {
+  display: grid;
+  grid-template-columns: repeat(32, 1fr);
+  width: 32rem;
+  height: 32rem;
+  margin: 1em;
+}
+
+.canvas > div {
+  border: 0.1px solid var(--text-alt1);
+  background-color: var(--text-clr);
 }
