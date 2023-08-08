@@ -14,11 +14,9 @@ for (let index = 0; index < 1024; index++) {
 const grid = document.querySelectorAll(".canvas");
 
 function clearbuttons() {
-  color_btn.removeAttribute("class");
-  rainbow_btn.removeAttribute("class");
-  grad_btn.removeAttribute("class");
-  eraser_btn.removeAttribute("class");
-  clear_btn.removeAttribute("class");
+  leftbutttons.forEach((element) => {
+    element.removeAttribute("class")
+  })
 }
 
 grid.forEach((element) => {
