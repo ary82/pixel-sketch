@@ -15,11 +15,18 @@
 
     <div class="container">
       <div class="left_menu">
-        <ul class="buttons">
-          <li><button>Color</button></li>
-          <li><button>Rainbow</button></li>
-          <li><button>Eraser</button></li>
-        </ul>
+        <div id="color_selector">
+          <button>Color</button>
+          <input type="color" value="#141b1e" />
+        </div>
+        <button id="rainbow_btn">Rainbow</button>
+        <button id="grad_btn">Gradient</button>
+        <button id="eraser_btn">Eraser</button>
+        <button id="clear_btn">Clear</button>
+        <div id="range_selector">
+          <input type="range" value="32" min="1" max="64" />
+          <p>Grid size: 32 x 32</p>
+        </div>
       </div>
       <div class="canvas"></div>
     </div>
