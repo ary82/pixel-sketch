@@ -124,12 +124,6 @@ body {
   border-radius: 1em;
 }
 
-.left_menu {
-  background-color: var(--text-clr);
-  border-radius: 1em 0 0 1em;
-  margin: 1em;
-  padding: 1em;
-}
 .canvas {
   display: grid;
   grid-template-columns: repeat(32, 1fr);
@@ -141,4 +135,36 @@ body {
 .canvas > div {
   border: 0.1px solid var(--text-alt1);
   background-color: var(--text-clr);
+}
+
+.left_menu {
+  background-color: var(--text-clr);
+  color: var(--base-clr);
+  border-radius: 1em 0 0 1em;
+  display: flex;
+  flex-flow: column;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  justify-content: space-around;
+}
+#color_selector {
+  display: flex;
+}
+#color_selector button {
+  flex-grow: 1;
+}
+#color_selector input {
+  padding: 0;
+  border: none;
+  width: 3em;
+  height: 3em;
+}
+.left_menu :hover {
+  scale: 1.05;
+}
+button,
+input {
+  transition: all 0.1s ease-in-out;
+  height: 3em;
 }
