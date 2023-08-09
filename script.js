@@ -16,24 +16,19 @@ for (let index = 0; index < 1024; index++) {
 }
 const grid = document.querySelectorAll(".canvas div");
 
+// Utility Functions
 function GenRandomClr() {
   temp = Math.floor(Math.random() * 359);
   temp = "hsl(" + temp + ", 75%, 60%)";
   return temp;
 }
-
 function clearbuttons() {
   leftbutttons.forEach((element) => {
     element.removeAttribute("class");
   });
 }
-grid.forEach((element) => {
-  element.addEventListener("mouseover", () => {
-    console.log("works");
-    element.setAttribute("class", "painted_canvas");
-  });
-});
 
+// Main Function
 leftbutttons.forEach((element) => {
   element.addEventListener("click", () => {
     clearbuttons();
@@ -65,12 +60,9 @@ leftbutttons.forEach((element) => {
       grid.forEach((element) => {
         element.style.setProperty("background-color", eraser_var);
       });
-      grid.forEach((element) => {
-        element.addEventListener("mouseover", () => {
-          console.log("works");
-          element.style.setProperty("background-color", color_var);
-        });
-      });
+      color_btn.click();
+    } else if (button === grad_btn) {
     }
   });
 });
+color_btn.click();
