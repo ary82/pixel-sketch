@@ -134,6 +134,7 @@ body {
 }
 
 .canvas > div {
+  border: 1px solid var(--text-alt1);
   background-color: var(--text-clr);
   width: 1rem;
 }
@@ -169,10 +170,6 @@ button {
   background-color: var(--base-alt1);
   border-radius: 0.5rem;
   color: var(--text-clr);
-}
-
-.canvas .painted_canvas {
-  background-color: var(--canvas-clr);
 }
 
 /* Animations */
