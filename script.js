@@ -36,21 +36,18 @@ leftbutttons.forEach((element) => {
     if (element === color_btn) {
       grid.forEach((element) => {
         element.addEventListener("mouseover", () => {
-          console.log("works");
           element.style.setProperty("background-color", color_var);
         });
       });
     } else if (element === rainbow_btn) {
       grid.forEach((element) => {
         element.addEventListener("mouseover", () => {
-          console.log("works");
           element.style.setProperty("background-color", GenRandomClr());
         });
       });
     } else if (element === eraser_btn) {
       grid.forEach((element) => {
         element.addEventListener("mouseover", () => {
-          console.log("works");
           element.style.setProperty("background-color", eraser_var);
         });
       });
@@ -61,7 +58,12 @@ leftbutttons.forEach((element) => {
         element.style.setProperty("background-color", eraser_var);
       });
       color_btn.click();
-    } else if (button === grad_btn) {
+    } else if (element === grad_btn) {
+      grid.forEach((element) => {
+        element.addEventListener("mouseover", () => {
+          console.log(color_var);
+        });
+      });
     }
   });
 });
