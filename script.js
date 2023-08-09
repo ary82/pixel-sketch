@@ -38,9 +38,7 @@ leftbutttons.forEach((element) => {
   element.addEventListener("click", () => {
     clearbuttons();
     element.setAttribute("class", "active_btn");
-    if (element === clear_btn || element === color_btn) {
-      element.removeAttribute("class");
-      color_btn.setAttribute("class", "active_btn");
+    if (element === color_btn) {
       grid.forEach((element) => {
         element.addEventListener("mouseover", () => {
           console.log("works");
@@ -59,6 +57,18 @@ leftbutttons.forEach((element) => {
         element.addEventListener("mouseover", () => {
           console.log("works");
           element.style.setProperty("background-color", eraser_var);
+        });
+      });
+    } else if (element === clear_btn) {
+      element.removeAttribute("class");
+      color_btn.setAttribute("class", "active_btn");
+      grid.forEach((element) => {
+        element.style.setProperty("background-color", eraser_var);
+      });
+      grid.forEach((element) => {
+        element.addEventListener("mouseover", () => {
+          console.log("works");
+          element.style.setProperty("background-color", color_var);
         });
       });
     }
