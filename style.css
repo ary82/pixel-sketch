@@ -7,6 +7,7 @@
   --text-success: rgb(140, 207, 126);
   --text-warning: rgb(229, 199, 107);
   --text-error: rgb(229, 116, 116);
+  --canvas-clr: hsl(198, 20%, 9%);
 }
 
 @font-face {
@@ -133,7 +134,6 @@ body {
 }
 
 .canvas > div {
-  border: 0.1px solid var(--text-alt1);
   background-color: var(--text-clr);
   width: 1rem;
 }
@@ -172,7 +172,7 @@ button {
 }
 
 .canvas .painted_canvas {
-  background-color: var(--base-clr);
+  background-color: var(--canvas-clr);
 }
 
 /* Animations */
