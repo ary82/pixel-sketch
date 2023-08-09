@@ -11,24 +11,24 @@ for (let index = 0; index < 1024; index++) {
   canvas.appendChild(newDiv);
 }
 
-const grid = document.querySelectorAll(".canvas");
+const grid = document.querySelectorAll(".canvas div");
 
 function clearbuttons() {
   leftbutttons.forEach((element) => {
-    element.removeAttribute("class")
-  })
+    element.removeAttribute("class");
+  });
 }
 
 grid.forEach((element) => {
   element.addEventListener("mouseover", () => {
     console.log("works");
+    element.setAttribute("class", "painted_canvas")
   });
 });
 
 leftbutttons.forEach((element) => {
   element.addEventListener("click", () => {
-    clearbuttons()
+    clearbuttons();
     element.setAttribute("class", "active_btn");
   });
 });
-
