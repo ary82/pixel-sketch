@@ -4,12 +4,12 @@ const rainbow_btn = document.getElementById("rainbow_btn");
 const grad_btn = document.getElementById("grad_btn");
 const eraser_btn = document.getElementById("eraser_btn");
 const clear_btn = document.getElementById("clear_btn");
-const leftbutttons = document.querySelectorAll(".left_menu button");
+const leftbutttons = document.querySelectorAll(".left_menu .toggle_btn");
 const root = document.querySelector(":root");
 let temp = "";
 let color_var = getComputedStyle(root).getPropertyValue("--canvas-clr");
 const eraser_var = getComputedStyle(root).getPropertyValue("--text-clr");
-let active_button = "color";
+let active_button = color_btn;
 
 for (let index = 0; index < 1024; index++) {
   var newDiv = document.createElement("div");
@@ -29,3 +29,35 @@ function clearbuttons() {
   });
 }
 
+// Main Function
+function main_function(element, active_button) {
+  if (active_button === "color_btn") {
+    element.style.setProperty("background-color", color_var);
+  } else if (active_button === "eraser_btn") {
+    element.style.setProperty("background-color", eraser_var);
+  } else if (active_button === "rainbow_btn") {
+    element.style.setProperty("background-color", GenRandomClr());
+  }
+}
+
+// Event Listeners
+grid.forEach((element) => {
+  element.addEventListener("mouseover", () => {
+    main_function(element, active_button.id);
+    // Do Something
+  });
+});
+
+leftbutttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    active_button.removeAttribute("class");
+    active_button = btn;
+    active_button.setAttribute("class", "active_btn");
+  });
+});
+
+clear_btn.addEventListener("click", () => {
+  grid.forEach((element) => {
+    element.style.setProperty("background-color", eraser_var);
+  });
+});
