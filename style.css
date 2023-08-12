@@ -133,7 +133,6 @@ body {
 }
 
 .canvas > div {
-  border: 1px solid var(--text-alt1);
   background-color: var(--text-clr);
 }
 
