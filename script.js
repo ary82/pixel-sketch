@@ -1,3 +1,4 @@
+// Defining Variables
 const canvas = document.querySelector(".canvas");
 const color_btn = document.getElementById("color_btn");
 const color_picker = document.getElementById("color_picker");
@@ -7,22 +8,34 @@ const eraser_btn = document.getElementById("eraser_btn");
 const clear_btn = document.getElementById("clear_btn");
 const range_picker = document.getElementById("range_picker");
 const leftbutttons = document.querySelectorAll(".left_menu .toggle_btn");
-const root = document.querySelector(":root");
 const grid_size_display = document.querySelector("#range_selector p");
+const border_btn = document.getElementById("toggle_border");
+const eraser_var = "hsl(0, 0%, 85%)";
 let temp;
-const eraser_var = getComputedStyle(root).getPropertyValue("--text-clr");
 let active_button = color_btn;
 let color_var = color_picker.value;
 let grad_var;
 let grad_numvar = [];
-let grid_size = parseInt(range_picker.value);
+let grid_size = range_picker.value;
+let border_var = 0;
 
-// Utility Functions
+//// Utility Functions
+
+// Function for grid event listeners
+function start_grid_listener() {
+  grid.forEach((element) => {
+    element.addEventListener("mouseover", () => {
+      change_active_mode(element, active_button.id);
+    });
+  });
+}
+// Random color for Rainbow button
 function GenRandomClr() {
   temp = Math.floor(Math.random() * 359);
   temp = "hsl(" + temp + ", 75%, 60%)";
   return temp;
 }
+// Gradient colors
 function GradFunction(element) {
   grad_var = window.getComputedStyle(element).getPropertyValue(
     "background-color",
@@ -35,6 +48,7 @@ function GradFunction(element) {
   return ("rgb(" + grad_numvar[0] + ", " + grad_numvar[1] + ", " +
     grad_numvar[2] + ")");
 }
+// Create Grid Function
 function createGrid(grid_size) {
   while (canvas.firstChild) {
     canvas.removeChild(canvas.firstChild);
@@ -49,18 +63,29 @@ function createGrid(grid_size) {
   );
   grid = document.querySelectorAll(".canvas div");
   grid_size_display.textContent = `Grid size: ${grid_size} x ${grid_size}`;
-
-  grid.forEach((element) => {
-    element.addEventListener("mouseover", () => {
-      main_function(element, active_button.id);
-      // Do Something
-    });
-  });
+  checkboderders(border_var);
+  start_grid_listener();
 }
+// Function call for initial grid creation
 createGrid(grid_size);
 
-// Main Function
-function main_function(element, active_button) {
+// Function for border toggle
+function checkboderders(border_var) {
+  if (border_var) {
+    toggle_border.setAttribute("class", "active_btn");
+    grid.forEach((element) => {
+      element.style.setProperty("border", "1px solid hsl(170, 4%, 71%)");
+    });
+    border_var = 1;
+  } else {
+    toggle_border.removeAttribute("class");
+    grid.forEach((element) => {
+      element.style.setProperty("border", "none");
+    });
+  }
+}
+// Function for changing active button/mode
+function change_active_mode(element, active_button) {
   if (active_button === "color_btn") {
     element.style.setProperty("background-color", color_var);
   } else if (active_button === "eraser_btn") {
@@ -72,7 +97,7 @@ function main_function(element, active_button) {
   }
 }
 
-// Event Listeners
+//// Event Listeners
 
 leftbutttons.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -80,6 +105,15 @@ leftbutttons.forEach((btn) => {
     active_button = btn;
     active_button.setAttribute("class", "active_btn");
   });
+});
+
+toggle_border.addEventListener("click", () => {
+  if (border_var) {
+    border_var = 0;
+  } else {
+    border_var = 1;
+  }
+  checkboderders(border_var);
 });
 
 clear_btn.addEventListener("click", () => {
@@ -91,8 +125,9 @@ clear_btn.addEventListener("click", () => {
 color_picker.addEventListener("input", () => {
   color_var = color_picker.value;
 });
+
 range_picker.addEventListener("input", () => {
-  grid_size = parseInt(range_picker.value);
+  grid_size = range_picker.value;
   console.log(grid_size);
   createGrid(grid_size);
 });
