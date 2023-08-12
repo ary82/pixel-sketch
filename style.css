@@ -1,12 +1,12 @@
 :root {
-  --base-clr: rgb(20, 27, 30);
-  --base-alt1: rgb(35, 42, 45);
-  --text-clr: rgb(218, 218, 218);
-  --text-alt1: rgb(179, 185, 184);
-  --text-links: rgb(103, 176, 232);
-  --text-success: rgb(140, 207, 126);
-  --text-warning: rgb(229, 199, 107);
-  --text-error: rgb(229, 116, 116);
+  --base-clr: hsl(198, 20%, 9%);
+  --base-alt1: hsl(198, 12%, 15%);
+  --text-clr: hsl(0, 0%, 85%);
+  --text-alt1: hsl(170, 4%, 71%);
+  --text-links: hsl(206, 73%, 65%);
+  --text-success: hsl(109, 45%, 65%);
+  --text-warning: hsl(45, 70%, 65%);
+  --text-error: hsl(0, 68%, 67%);
   --canvas-clr: hsl(198, 20%, 9%);
 }
 
