@@ -7,10 +7,12 @@ const eraser_btn = document.getElementById("eraser_btn");
 const clear_btn = document.getElementById("clear_btn");
 const leftbutttons = document.querySelectorAll(".left_menu .toggle_btn");
 const root = document.querySelector(":root");
-let temp = "";
+let temp;
 const eraser_var = getComputedStyle(root).getPropertyValue("--text-clr");
 let active_button = color_btn;
 let color_var = color_picker.value;
+let grad_var;
+let grad_numvar = [];
 
 for (let index = 0; index < 1024; index++) {
   var newDiv = document.createElement("div");
@@ -24,6 +26,18 @@ function GenRandomClr() {
   temp = "hsl(" + temp + ", 75%, 60%)";
   return temp;
 }
+function GradFunction(element) {
+  grad_var = window.getComputedStyle(element).getPropertyValue(
+    "background-color",
+  );
+  grad_var = (grad_var.slice(4).slice(0, -1)).split(", ");
+  grad_numvar = [];
+  grad_var.forEach((element) => {
+    grad_numvar.push(parseFloat(element) - (0.1 * parseFloat(element)));
+  });
+  return ("rgb(" + grad_numvar[0] + ", " + grad_numvar[1] + ", " +
+    grad_numvar[2] + ")");
+}
 
 // Main Function
 function main_function(element, active_button) {
@@ -33,6 +47,8 @@ function main_function(element, active_button) {
     element.style.setProperty("background-color", eraser_var);
   } else if (active_button === "rainbow_btn") {
     element.style.setProperty("background-color", GenRandomClr());
+  } else if (active_button === "grad_btn") {
+    element.style.setProperty("background-color", GradFunction(element));
   }
 }
 
