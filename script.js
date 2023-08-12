@@ -7,8 +7,9 @@ const clear_btn = document.getElementById("clear_btn");
 const leftbutttons = document.querySelectorAll(".left_menu button");
 const root = document.querySelector(":root");
 let temp = "";
-const color_var = getComputedStyle(root).getPropertyValue("--canvas-clr");
+let color_var = getComputedStyle(root).getPropertyValue("--canvas-clr");
 const eraser_var = getComputedStyle(root).getPropertyValue("--text-clr");
+let active_button = "color";
 
 for (let index = 0; index < 1024; index++) {
   var newDiv = document.createElement("div");
@@ -28,47 +29,3 @@ function clearbuttons() {
   });
 }
 
-// Main Function
-leftbutttons.forEach((element) => {
-  element.addEventListener("click", () => {
-    clearbuttons();
-    element.setAttribute("class", "active_btn");
-    if (element === color_btn) {
-      grid.forEach((element) => {
-        element.addEventListener("mouseover", () => {
-          element.style.setProperty("background-color", color_var);
-        });
-      });
-    } else if (element === rainbow_btn) {
-      grid.forEach((element) => {
-        element.addEventListener("mouseover", () => {
-          element.style.setProperty("background-color", GenRandomClr());
-        });
-      });
-    } else if (element === eraser_btn) {
-      grid.forEach((element) => {
-        element.addEventListener("mouseover", () => {
-          console.log(eraser_var);
-          element.style.setProperty("background-color", eraser_var);
-        });
-      });
-    } else if (element === clear_btn) {
-      element.removeAttribute("class");
-      color_btn.setAttribute("class", "active_btn");
-      grid.forEach((element) => {
-        element.style.setProperty("background-color", eraser_var);
-      });
-      color_btn.click();
-    } else if (element === grad_btn) {
-      grid.forEach((element) => {
-        element.addEventListener("mouseover", () => {
-          let current_clr = getComputedStyle(element).getPropertyValue(
-            "background-color",
-          );
-          console.log(current_clr);
-        });
-      });
-    }
-  });
-});
-color_btn.click();
