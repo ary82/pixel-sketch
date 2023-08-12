@@ -48,6 +48,7 @@ leftbutttons.forEach((element) => {
     } else if (element === eraser_btn) {
       grid.forEach((element) => {
         element.addEventListener("mouseover", () => {
+          console.log(eraser_var);
           element.style.setProperty("background-color", eraser_var);
         });
       });
@@ -61,7 +62,10 @@ leftbutttons.forEach((element) => {
     } else if (element === grad_btn) {
       grid.forEach((element) => {
         element.addEventListener("mouseover", () => {
-          console.log(color_var);
+          let current_clr = getComputedStyle(element).getPropertyValue(
+            "background-color",
+          );
+          console.log(current_clr);
         });
       });
     }
