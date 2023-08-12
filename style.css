@@ -127,7 +127,6 @@ body {
 
 .canvas {
   display: grid;
-  grid-template-columns: repeat(32, 1fr);
   width: 32rem;
   height: 32rem;
   margin: 1em;
@@ -136,7 +135,6 @@ body {
 .canvas > div {
   border: 1px solid var(--text-alt1);
   background-color: var(--text-clr);
-  width: 1rem;
 }
 
 .left_menu {
