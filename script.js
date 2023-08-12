@@ -128,6 +128,5 @@ color_picker.addEventListener("input", () => {
 
 range_picker.addEventListener("input", () => {
   grid_size = range_picker.value;
-  console.log(grid_size);
   createGrid(grid_size);
 });
