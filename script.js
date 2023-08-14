@@ -14,7 +14,6 @@ const eraser_var = "hsl(0, 0%, 85%)";
 let temp;
 let active_button = color_btn;
 let color_var = color_picker.value;
-let grad_var;
 let grad_numvar = [];
 let grid_size = range_picker.value;
 let border_var = 0;
@@ -37,12 +36,12 @@ function GenRandomClr() {
 }
 // Gradient colors
 function GradFunction(element) {
-  grad_var = window.getComputedStyle(element).getPropertyValue(
+  temp = window.getComputedStyle(element).getPropertyValue(
     "background-color",
   );
-  grad_var = (grad_var.slice(4).slice(0, -1)).split(", ");
+  temp = (temp.slice(4).slice(0, -1)).split(", ");
   grad_numvar = [];
-  grad_var.forEach((element) => {
+  temp.forEach((element) => {
     grad_numvar.push(parseFloat(element) - (0.2 * parseFloat(element)));
   });
   return ("rgb(" + grad_numvar[0] + ", " + grad_numvar[1] + ", " +
